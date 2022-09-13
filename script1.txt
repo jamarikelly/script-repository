@@ -24,4 +24,4 @@ function update_server() {
 update_server
 
 #crontab Bash script that will automatically update the server weekly, every Friday at 11pm.
-# 0 11 * * 5 script.sh
+# 0 23 * * 5 script.sh
