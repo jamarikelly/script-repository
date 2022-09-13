@@ -5,23 +5,28 @@
 
 #!/bin/bash
 
-#function that will automatically update the server weekly, every Friday at 11pm.
-function update_server() {
+    #create file 
+    touch updatedInfo
+    
     #update the server
     echo "Updating the server"
-    #create a file with the date appended to the file name and inside the file should be what was updated
-    filename="$(date +%Y-%m-%d)"
-    # echo "Creating file $filename"
-    touch $filename
+    
+     #update the ubuntu server
+    sudo apt-get update -y >> updatedInfo
+    
     #update the ubuntu server
-    (apt-get update -y) >> "$filename"
+    sudo apt-get upgrade -y >> updatedInfo
+    
     #update the ubuntu server
-    (apt-get upgrade -y) >> "$filename"
-    #update the ubuntu server
-    (apt-get dist-upgrade -y) >> "$filename"  
-}
+    sudo apt-get dist-upgrade -y >> updatedInfo
+    
+    #appended date to the file name and inside the file should be what was updated
+    date >> updatedInfo
+    
+    
 
-update_server
+
+
 
 #crontab Bash script that will automatically update the server weekly, every Friday at 11pm.
 # 0 23 * * 5 script.sh
