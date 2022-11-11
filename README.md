@@ -1,5 +1,5 @@
 # test_repo
 
-# will be sharing bash scripts and so much more here
+# will be sharing bash and python scripts
 
-testing environment, used git to edit these lines 
+
